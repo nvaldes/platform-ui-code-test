@@ -1,3 +1,12 @@
+.list-container {
+  padding: 0px 24px;
+  height: 96vh;
+  width: 96%;
+  border: 1px solid lightgray;
+}
+h2 {
+  border-bottom: 1px solid lightgray;
+}
 .providers-list mat-card {
-    cursor: pointer;
+  cursor: pointer;
 }

@@ -1,5 +1,5 @@
-<div fxLayout="row" fxLayoutGap="20px">
-  <div class="providers-list">
+<div fxLayout="row" fxLayoutGap="20px" class="list-container">
+  <div class="providers-list" fxFlex="50%">
     <h2 class="mat-title">Available Providers</h2>
     <mat-spinner *ngIf="providersLoading"></mat-spinner>
     <div fxLayout="column" fxLayoutGap="10px" *ngIf="!providersLoading">
@@ -16,7 +16,7 @@
     </div>
   </div>
   <mat-divider [vertical]="true"></mat-divider>
-  <div class="selected-list">
+  <div class="selected-list" fxFlex="50%">
     <h2 class="mat-title">Your Selection</h2>
     <mat-spinner *ngIf="selectionLoading"></mat-spinner>
     <div fxLayout="column" fxLayoutGap="10px" *ngIf="!selectionLoading">
