@@ -1,4 +1,39 @@
-<div class="list-container">
-  <h2>Providers</h2>
-
+<div fxLayout="row" fxLayoutGap="20px">
+  <div class="providers-list">
+    <h2 class="mat-title">Available Providers</h2>
+    <mat-spinner *ngIf="providersLoading"></mat-spinner>
+    <div fxLayout="column" fxLayoutGap="10px" *ngIf="!providersLoading">
+      <mat-card
+        (click)="selectProvider(provider)"
+        *ngFor="let provider of unselectedProviders"
+      >
+        <mat-card-content>
+          <p><strong>Name: </strong>{{ provider.name }}</p>
+          <p><strong>Address: </strong>{{ provider.address }}</p>
+          <p><strong>Phone: </strong>{{ provider.phone | phone }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <mat-divider [vertical]="true"></mat-divider>
+  <div class="selected-list">
+    <h2 class="mat-title">Your Selection</h2>
+    <mat-spinner *ngIf="selectionLoading"></mat-spinner>
+    <div fxLayout="column" fxLayoutGap="10px" *ngIf="!selectionLoading">
+      <mat-card *ngFor="let provider of selectedProviders">
+        <mat-card-content>
+          <p><strong>Name: </strong>{{ provider.name }}</p>
+          <p><strong>Address: </strong>{{ provider.address }}</p>
+          <p><strong>Phone: </strong>{{ provider.phone | phone }}</p>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-icon-button (click)="deselectProvider(provider)">
+            <mat-icon>
+              close
+            </mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
 </div>
